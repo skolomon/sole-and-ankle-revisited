@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import styled from 'styled-components/macro';
-import { COLORS, WEIGHTS, QUERIES } from '../../constants';
+import { WEIGHTS, QUERIES } from '../../constants';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 
 import UnstyledButton from '../UnstyledButton';
@@ -41,7 +41,11 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 const Overlay = styled(DialogOverlay)`
   position: fixed;
   inset: 0;
-  background: rgba(96, 100, 108, 0.80);
+  background: hsl(
+    var(--color-overlay-angle) 
+    var(--color-overlay-intensity) / 
+    var(--color-overlay-opacity)
+  );
 `;
 
 const Wrapper = styled(DialogContent)`
@@ -52,12 +56,12 @@ const Wrapper = styled(DialogContent)`
   min-width: 300px;
   padding: 20px 32px 28px;
   z-index: 999;
-  background: white;
+  background: var(--color-white);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   @media ${QUERIES.phone} {
-    padding-right: 16px;
+    padding-inline: 16px;
   }
 `;
 
@@ -75,16 +79,16 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
   font-weight: ${WEIGHTS.medium};
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
 const Footer = styled.footer`
-  color: ${COLORS.gray[700]};
+  color: var(--color-gray-700);
   font-size: calc(14rem / 16);
   gap: 8px;
   display: flex;
