@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { COLORS } from '../../constants';
 
-const Breadcrumbs = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>;
+const Breadcrumbs = ({ children, show }) => {
+  return <Wrapper show={show}>{children}</Wrapper>;
 };
 
 Breadcrumbs.Crumb = ({ href, children, delegated }) => {
@@ -38,7 +38,7 @@ const CrumbLink = styled.a`
 `;
 
 const Wrapper = styled.nav`
-  display: flex;
+  display: ${(props) => props.show===1 ? 'flex' : 'none'};
   font-size: 0.875rem;
 `;
 export default Breadcrumbs;
